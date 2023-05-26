@@ -1,7 +1,7 @@
 databases:
-  - name: test
-    databaseName: test_bj2r
-    user: test
+  - name: mysite
+    databaseName: mysite
+    user: mysite
 
  services:
  - type: pserv
@@ -11,9 +11,8 @@ databases:
    repo: https://github.com/render-oss/docker-pgbouncer
    envVars:
    - key: DATABASE_URL
-      value: postgres://test:DbPCDoVPAy1G2rKI7KqkmDUpjZcO5QSC@dpg-chnq99o2qv207f2q8fog-a/test_bj2r'
      fromDatabase:
-       name: test
+       name: mysite
        property: connectionString
    - key: POOL_MODE
      value: transaction
