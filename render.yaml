@@ -1,0 +1,24 @@
+databases:
+  - name: dpg-chnq99o2qv207f2q8fog-a
+    databaseName: test_bj2r
+    user: test
+
+ services:
+ - type: pserv
+   name: pgbouncer
+   env: docker
+   plan: standard
+   repo: https://github.com/render-oss/docker-pgbouncer
+   envVars:
+   - key: postgres://test:DbPCDoVPAy1G2rKI7KqkmDUpjZcO5QSC@dpg-chnq99o2qv207f2q8fog-a.oregon-postgres.render.com/test_bj2r
+     fromDatabase:
+       name: mysite
+       property: connectionString
+   - key: POOL_MODE
+     value: transaction
+   - key: SERVER_RESET_QUERY
+     value: DISCARD ALL
+   - key: MAX_CLIENT_CONN
+     value: 500
+   - key: DEFAULT_POOL_SIZE
+     value: 50

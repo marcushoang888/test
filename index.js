@@ -11,10 +11,7 @@ app.use(cors());
 //   "postgres://test:DbPCDoVPAy1G2rKI7KqkmDUpjZcO5QSC@dpg-chnq99o2qv207f2q8fog-a.oregon-postgres.render.com/test_bj2r"
 // );
 
-const sequelize = new Sequelize('test_bj2r', 'test', 'DbPCDoVPAy1G2rKI7KqkmDUpjZcO5QSC', {
-    host: 'dpg-chnq99o2qv207f2q8fog-a',
-    dialect: 'postgres' 
-})
+const sequelize = new Sequelize("postgres://test:DbPCDoVPAy1G2rKI7KqkmDUpjZcO5QSC@dpg-chnq99o2qv207f2q8fog-a/test_bj2r")
 
 async function testing() {
   try {
