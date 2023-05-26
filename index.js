@@ -1,20 +1,17 @@
 import express from "express";
 import cors from "cors";
-import { Sequelize } from "sequelize";
+import { DataTypes, Sequelize } from "sequelize";
 
 const app = express();
-const port = process.env.PORT;
+const PORT = process.env.PORT || 3030;
 app.use(express());
 app.use(cors());
 
+// "test_bj2r",
+// "test",
+// "DbPCDoVPAy1G2rKI7KqkmDUpjZcO5QSC",
 const sequelize = new Sequelize(
-  "test_bj2r",
-  "test",
-  "DbPCDoVPAy1G2rKI7KqkmDUpjZcO5QSC",
-  {
-    host: "postgres://test:DbPCDoVPAy1G2rKI7KqkmDUpjZcO5QSC@dpg-chnq99o2qv207f2q8fog-a.oregon-postgres.render.com/test_bj2r",
-    dialect: "postgres",
-  }
+  "postgres://test:DbPCDoVPAy1G2rKI7KqkmDUpjZcO5QSC@dpg-chnq99o2qv207f2q8fog-a/test_bj2r",
 );
 
 async function testing() {
@@ -28,13 +25,24 @@ async function testing() {
 
 testing();
 
-app.listen(port || 3000, () => {
+app.listen(PORT, () => {
   console.log("Server is running");
+});
+
+const User = sequelize.define("user", {
+  name: DataTypes.TEXT,
+  favoriteColor: {
+    type: DataTypes.TEXT,
+    defaultValue: "green",
+  },
+  age: DataTypes.INTEGER,
+  cash: DataTypes.INTEGER,
 });
 
 app.get("/", async (req, res) => {
   const jane = await User.create({ firstName: "Jane", lastName: "Doe" });
+  console.log(jane.id);
   res.json({
-    message:  jane.id,
+    message: jane.id,
   });
 });
