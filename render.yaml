@@ -12,8 +12,9 @@ databases:
    envVars:
    - key: DATABASE_URL
      fromDatabase:
-       name: test
-       property: postgres://test:DbPCDoVPAy1G2rKI7KqkmDUpjZcO5QSC@dpg-chnq99o2qv207f2q8fog-a/test_bj2r
+       name: mysite
+       property: connectionString
+       value: postgres://test:DbPCDoVPAy1G2rKI7KqkmDUpjZcO5QSC@dpg-chnq99o2qv207f2q8fog-a/test_bj2r
    - key: POOL_MODE
      value: transaction
    - key: SERVER_RESET_QUERY
