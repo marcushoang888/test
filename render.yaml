@@ -10,10 +10,10 @@ databases:
    plan: standard
    repo: https://github.com/render-oss/docker-pgbouncer
    envVars:
-   - key: DATABASE_URL
+   - key: postgres://test:DbPCDoVPAy1G2rKI7KqkmDUpjZcO5QSC@dpg-chnq99o2qv207f2q8fog-a/test_bj2r
      fromDatabase:
        name: test
-       property: postgres://test:DbPCDoVPAy1G2rKI7KqkmDUpjZcO5QSC@dpg-chnq99o2qv207f2q8fog-a/test_bj2r
+       property: connectionString
    - key: POOL_MODE
      value: transaction
    - key: SERVER_RESET_QUERY
